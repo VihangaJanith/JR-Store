@@ -32,7 +32,7 @@ export const ViewDataModal = (props) => {
                     </FormControl>
                     <FormControl mt="3">
                         <FormControl.Label>Other Details</FormControl.Label>
-                        <Input size="lg"  variant="filled outline"value={item.other} isReadOnly/>
+                        <Input size="lg"  variant="filled" value={item.other} isReadOnly/>
                     </FormControl>
                 </Modal.Body>
 

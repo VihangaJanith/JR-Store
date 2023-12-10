@@ -1,13 +1,12 @@
 import {Button, Modal, FormControl, Input, Center, NativeBaseProvider} from "native-base";
 import {useState, useEffect} from 'react';
-import axios from 'axios'; // Assuming you have Axios installed for making HTTP requests
+import axios from 'axios';
+// Assuming you have Axios installed for making HTTP requests
 
 export const UpdateDataModal = (props) => {
     const {showModal, setShowModal, itemId} = props;
     const [updatedItem, setUpdatedItem] = useState({});
 
-
-    // Fetch data by ID when the modal is opened
     useEffect(() => {
         // const fetchDataById = () =>
         console.log('Item ID', itemId);
@@ -17,24 +16,16 @@ export const UpdateDataModal = (props) => {
         }).catch((error) => {
             console.log(error);
         })
-
-        // if (showModal) {
-        //     fetchDataById();
-        //     console.log('Item ID', item);
-        // }
     }, [showModal]);
 
     const handleSave = async () => {
         try {
-            // Make an API call to update the data using the fetched item's ID
+
             console.log('updated', updatedItem);
             const response = await axios.put(`/item/update/`, updatedItem);
 
-            // Handle success (you may want to add more logic here)
             console.log('Item updated successfully', response.data);
 
-
-            // Close the modal
             setShowModal(false);
 
 
@@ -50,11 +41,6 @@ export const UpdateDataModal = (props) => {
             <Modal.Header>Update Item</Modal.Header>
 
             <Modal.Body>
-                {/* Similar to your existing code */}
-                {/* ... */}
-
-                {/* Allow editing for certain fields */}
-
                 <FormControl>
                     <FormControl.Label>Item Name</FormControl.Label>
                     <Input
@@ -97,10 +83,6 @@ export const UpdateDataModal = (props) => {
                         onChange={(e) => setUpdatedItem({...updatedItem, status: e.nativeEvent.text})}
                     />
                 </FormControl>
-
-
-
-                {/* ... (repeat for other editable fields) */}
             </Modal.Body>
 
             <Modal.Footer>
