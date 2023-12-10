@@ -62,6 +62,7 @@ export default function App() {
               tabBarInactiveTintColor: "gray",
             })} >
           <Tab.Screen name="Home" component={HomeScreen} />
+          <Tab.Screen name="Add" component={HomeScreen} options={{  headerShown: false }} />
           <Tab.Screen name="Foods" component={HomeScreen} options={{  headerShown: false }} />
         </Tab.Navigator>
     );
